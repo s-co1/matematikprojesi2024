@@ -1,0 +1,57 @@
+{% include "layout.html" %}
+
+{% block body %}
+<script>
+const answers = {{ cevaplar|safe }};
+const Qinputs = {{ inputs|safe }}
+console.log("21")
+
+    function check(id) {
+        const inputElement = document.getElementById(id);
+        if (!inputElement) {
+            console.error(`Input element with ID ${id} not found.`);
+            return;
+        }
+        const inputValue = inputElement.value;
+        console.log(`Input ID: ${id}, Value: ${inputValue}, Expected Answer: ${answers[id[1] - 1]}`);
+      const q = [answers[id[1] - 1]]
+        if (q.includes(inputValue)) {
+          
+            inputElement.style.background = "#90ee90"; // Green for correct
+            console.log("Correct answer");
+        } else {
+          
+            inputElement.style.background = "#ffcccb"; // Red for incorrect
+            console.log("Incorrect answer");
+        }
+    }
+
+    function call() {
+        Qinputs.forEach(check);
+    }
+
+    function call2() {
+        alert(answers.join(', '));
+    }
+</script>
+<style>
+  q{
+    background: #add8e6;
+  }
+</style>
+{% include "ext/bar.html"%}
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='Q.css')}}">
+
+<div class="float">
+  <div class="onerme"><img src="{{ url_for('static',filename=(onerme))}}" alt="" class="geometrik" ></div>
+  <div class="panel">
+    <h2 class="panelitem">Panel <a type="button" class="btn btn-dark" style="align-items: left;" href="/Q/{{ pri }}">Previous</a><a type="button" class="btn btn-dark" style="align-items: left;" href="/Q/{{ pos }}">Next</a></h2>
+     {% for i in terminal_content %}
+<span id="{{ i['id'] }}" class="panelelement">{{ i['hyper text']|safe }}</span>
+  {% endfor %}
+  </div>
+
+</div>
+{% endblock %}
+{% endblock %}

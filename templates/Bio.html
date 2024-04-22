@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Proje hakkında</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='Ozgu.css')}}">
+    {% include "ext/bootstrap.html" %}
+</head>
+<body class="birincil"  >
+{% include "ext/bar.html" %}
+<H1>Proje hakkında</H1>
+<pre>Bu proje <strong>Sarp Kılıç tarafından </strong> bir proje ödevi olarak tasarlanmıştır.</pre>
+<div class="passport">
+<pre style="border-top-width: 20px;border-top-style: solid;border-right-width: 20px;border-right-style: solid;border-left-width: 20px;border-left-style: solid;border-bottom-width: 20px;border-bottom-style: solid;border-color:#e3f2fd;">
+    İsim: Sarp Kılıç
+    Okul No. 6593
+    Okul: istek acıbadem okulları
+    Yayınlanma tarihi: 17.02.2024
+    Ders: Matematik
+</pre>
+    </div>
+</body>
+</html>
